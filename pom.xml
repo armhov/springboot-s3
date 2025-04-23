@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
-        <aws.sdk.version>2.25.20</aws.sdk.version>
+        <aws.sdk.version>2.31.27</aws.sdk.version>
     </properties>
 
     <dependencies>
