@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
-    - host: {{ .Values.ingress.dnsWildcard }}
+    - host: springboot-s3-647f9884-s3-dev.development.krci-dev.cloudmentor.academy
       http:
         paths:
           - path: /
