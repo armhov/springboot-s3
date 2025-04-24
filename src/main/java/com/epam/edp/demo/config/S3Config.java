@@ -12,7 +12,7 @@ public class S3Config {
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
-                .region(Region.of("eu-central-1")) // Change if your S3 bucket is in a different region
+                .region(Region.of(System.getenv("AWS_REGION"))) // Use environment variable for region
                 .credentialsProvider(WebIdentityTokenFileCredentialsProvider.create())
                 .build();
     }
