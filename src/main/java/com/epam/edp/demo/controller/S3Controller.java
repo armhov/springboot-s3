@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
-import software.amazon.awssdk.services.s3.model.S3Object;
-import software.amazon.awssdk.core.sync.ResponseInputStream;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
@@ -34,8 +33,8 @@ public class S3Controller {
                 .key(fileName)
                 .build();
 
-        try (ResponseInputStream<S3Object> s3Object = s3Client.getObject(getObjectRequest);
-             BufferedReader reader = new BufferedReader(new InputStreamReader(s3Object))) {
+        try (InputStream inputStream = s3Client.getObject(getObjectRequest);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
             String content = reader.lines().collect(Collectors.joining("\n"));
             return String.format("{\"content\": \"%s\"}", content);
