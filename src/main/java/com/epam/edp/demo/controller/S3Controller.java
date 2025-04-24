@@ -37,7 +37,7 @@ public class S3Controller {
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
             String content = reader.lines().collect(Collectors.joining("\n"));
-            return String.format("{\"content\": \"%s\"}", content);
+            return String.format("{\"content\":\"%s\"}", content);
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to retrieve file from S3", e);
